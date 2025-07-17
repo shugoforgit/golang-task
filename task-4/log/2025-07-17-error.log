@@ -1,0 +1,18 @@
+[ERROR] 2025/07/17 12:31:09 logger.go:75: JWT认证失败, 缺少Authorization头
+[ERROR] 2025/07/17 12:31:28 logger.go:75: JWT认证失败, 缺少Authorization头
+[ERROR] 2025/07/17 12:38:18 logger.go:75: db 读单个文章失败: record not found
+[ERROR] 2025/07/17 12:49:18 logger.go:75: db 更新文章失败: record not found {2 wwwe12321321e woqijeoi}
+[ERROR] 2025/07/17 12:49:44 logger.go:75: 更新文章失败, 用户无权限: {3 wwwe12321321e woqijeoi} tokenuserid: 3
+[ERROR] 2025/07/17 12:50:02 logger.go:75: 更新文章失败, 用户无权限: {3 wwwe12321321e woqijeoi} tokenuserid: 3
+[ERROR] 2025/07/17 12:50:30 logger.go:75: 更新文章失败, 用户无权限: {3 wwwe12321321e woqijeoi} tokenuserid: 3
+[ERROR] 2025/07/17 12:52:19 logger.go:75: 更新文章失败, 用户无权限: {3 wwwe12321321e woqijeoi} tokenuserid: 3
+[ERROR] 2025/07/17 12:55:47 logger.go:75: db 删除文章失败: Error 1054 (42S22): Unknown column 'post_count' in 'field list' {12}
+[ERROR] 2025/07/17 12:58:24 logger.go:75: db 删除文章失败: Error 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`blog_db`.`comments`, CONSTRAINT `fk_posts_comments` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`)) {1}
+[ERROR] 2025/07/17 13:03:02 logger.go:75: db 创建评论失败: Error 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`blog_db`.`comments`, CONSTRAINT `fk_posts_comments` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`)) {1 good look}
+[ERROR] 2025/07/17 13:03:03 logger.go:75: db 创建评论失败: Error 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`blog_db`.`comments`, CONSTRAINT `fk_posts_comments` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`)) {1 good look}
+[ERROR] 2025/07/17 13:05:21 logger.go:75: db 删除文章失败: Error 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`blog_db`.`comments`, CONSTRAINT `fk_posts_comments` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`)) {4}
+[ERROR] 2025/07/17 13:05:51 logger.go:75: db 删除文章失败: Error 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`blog_db`.`comments`, CONSTRAINT `fk_posts_comments` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`)) {4}
+[ERROR] 2025/07/17 13:07:37 logger.go:75: db 删除文章失败: Error 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`blog_db`.`comments`, CONSTRAINT `fk_posts_comments` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`)) {4}
+[ERROR] 2025/07/17 13:07:51 logger.go:75: db 删除文章失败: Error 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`blog_db`.`comments`, CONSTRAINT `fk_posts_comments` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`)) {4}
+[ERROR] 2025/07/17 13:08:50 logger.go:75: db 删除文章失败: Error 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`blog_db`.`comments`, CONSTRAINT `fk_posts_comments` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`)) {4}
+[ERROR] 2025/07/17 13:12:28 logger.go:75: db 删除文章失败: Error 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`blog_db`.`comments`, CONSTRAINT `fk_posts_comments` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`)) {4}
