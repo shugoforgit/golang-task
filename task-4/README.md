@@ -74,22 +74,59 @@ go build -o main .
 
 服务将在 `http://localhost:8080` 启动。
 
+### 5. 测试API
+
+项目提供了完整的API测试用例，您可以选择以下任一方式测试：
+
+#### 使用 Apifox
+1. 下载并安装 [Apifox](https://apifox.com/), 或者使用网页版(需要安装插件才能调用本地接口)
+2. 导入项目根目录下的 `个人博客.Apifox.json` 文件
+3. 运行注册和登录接口获取JWT Token
+4. 使用其他接口进行测试
+
+#### 使用 Postman
+1. 下载并安装 [Postman](https://www.postman.com/)
+2. 导入项目根目录下的 `个人博客.postman.json` 文件
+3. 运行注册和登录接口获取JWT Token
+4. 使用其他接口进行测试
+
+#### 使用 curl 命令行
+```bash
+# 注册用户
+curl -X POST http://localhost:8080/register \
+  -H "Content-Type: application/json" \
+  -d '{"username":"testuser","password":"password123","email":"test@example.com"}'
+
+# 登录获取Token
+curl -X POST http://localhost:8080/login \
+  -H "Content-Type: application/json" \
+  -d '{"username":"testuser","password":"password123"}'
+
+# 使用Token创建文章
+curl -X POST http://localhost:8080/auth/create-post \
+  -H "Content-Type: application/json" \
+  -H "Authorization: YOUR_JWT_TOKEN" \
+  -d '{"title":"测试文章","content":"这是测试内容"}'
+```
+
 ## 项目结构
 
 ```
 task-4/
-├── main.go              # 主程序入口
-├── go.mod               # Go 模块文件
-├── go.sum               # 依赖校验文件
-├── README.md            # 项目文档
-├── logger/              # 日志模块
-│   └── logger.go        # 日志工具
-├── response/            # 响应处理模块
-│   ├── response.go      # 统一响应格式
-│   └── errors.go        # 错误常量定义
-└── log/                 # 日志文件目录
-    ├── info.log         # 信息日志
-    └── error.log        # 错误日志
+├── main.go                    # 主程序入口
+├── go.mod                     # Go 模块文件
+├── go.sum                     # 依赖校验文件
+├── README.md                  # 项目文档
+├── 个人博客.Apifox.json       # Apifox 测试用例
+├── 个人博客.postman.json      # Postman 测试用例
+├── logger/                    # 日志模块
+│   └── logger.go             # 日志工具
+├── response/                  # 响应处理模块
+│   ├── response.go           # 统一响应格式
+│   └── errors.go             # 错误常量定义
+└── log/                      # 日志文件目录
+    ├── info.log              # 信息日志
+    └── error.log             # 错误日志
 ```
 
 ## API 接口文档
@@ -99,6 +136,31 @@ task-4/
 - **Base URL**: `http://localhost:8080`
 - **Content-Type**: `application/json`
 - **认证方式**: JWT Token (在请求头中添加 `Authorization: <token>`)
+
+### 测试工具
+
+项目提供了完整的API测试用例，可以直接导入到测试工具中使用：
+
+#### Apifox 导入
+1. 打开 [Apifox](https://apifox.com/), 或者使用网页版(需要安装插件才能调用本地接口)
+2. 创建新项目或打开现有项目
+3. 点击 "导入" → "从文件导入"
+4. 选择项目根目录下的 `个人博客.Apifox.json` 文件
+5. 导入后即可使用所有预配置的API测试用例
+
+#### Postman 导入
+1. 打开 [Postman](https://www.postman.com/)
+2. 点击 "Import" 按钮
+3. 选择 "File" 标签页
+4. 选择项目根目录下的 `个人博客.postman.json` 文件
+5. 点击 "Import" 完成导入
+6. 导入后可在 Collections 中找到 "个人博客" 集合
+
+#### 使用说明
+- 测试用例已预配置所有必要的请求参数
+- JWT Token 需要在登录后手动更新到环境变量中
+- 建议先运行注册和登录接口获取Token
+- 所有需要认证的接口都会自动使用环境变量中的Token
 
 ### 统一响应格式
 
